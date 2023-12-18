@@ -1,6 +1,6 @@
 // npm run dev -> localhost:5173
 
-import { Post } from './Post'
+import { Post } from './components/Post'
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
 
