@@ -22,6 +22,9 @@ export function Post({ author, content, publishedAt}) {
 
     const [newCommentText, setNewCommentText] = useState('')
 
+    const isNewCommentEmpty = newCommentText.length == 0
+
+    {/* adds a new comment to the array */}
     function handleCreateNewComment() {
         event.preventDefault()
       
@@ -29,16 +32,24 @@ export function Post({ author, content, publishedAt}) {
         setNewCommentText('');
     }
 
+    {/* updates the value of the new comment */}
     function handleNewCommentText() {
+        event.target.setCustomValidity('')
         setNewCommentText(event.target.value);
     }
 
+    {/* deletes a comment from the array */}
     function deleteComment(commentToBeDeleted) {
         const filteredComments = comments.filter(comment => {
             return comment !== commentToBeDeleted
         })
 
         setComments(filteredComments);
+    }
+
+    {/* prevents from sending a empty comment */}
+    function handleNewCommentInvalid() {
+        event.target.setCustomValidity('Esse campo é obrigatório lil bro!')
     }
 
     return (
@@ -75,10 +86,14 @@ export function Post({ author, content, publishedAt}) {
                     placeholder='Deixe um comentário'
                     value={newCommentText}
                     onChange={handleNewCommentText}
+                    onInvalid={handleNewCommentInvalid}
+                    required
                 />
 
                 <footer>
-                    <button type="submit">Publicar</button>
+                    <button type="submit" disabled={isNewCommentEmpty}>
+                        Publicar
+                    </button>
                 </footer>
             </form>
 
