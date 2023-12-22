@@ -4,5 +4,5 @@ A project developed following Rockeseat's React Trail, basically we've got a sim
 - comment on posts
 - delete your comments
 
-Profile pictures are static but you can change them using the link from GitHub's profile picture;
-Posts are static too, you can chage them only adding a new one in the array of Posts;
+Profile pictures are static but you can change them using the link from GitHub's profile picture;\
+Posts are static too, you can change them only adding a new one in the array of Posts;
